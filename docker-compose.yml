@@ -1,0 +1,12 @@
+version: '2'
+services:
+  api:
+    build: ./api
+    links:
+      - mongo:mongo
+    ports:
+      - 80:8080
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ./data/mongo:/data/db
